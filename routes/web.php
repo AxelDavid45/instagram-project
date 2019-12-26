@@ -15,4 +15,6 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/configuration', 'UserController@configuration')->name('config');
-
+Route::group(['prefix' => 'user'], function () {
+    Route::post('edit', 'UserController@edit')->name('user.edit');
+});

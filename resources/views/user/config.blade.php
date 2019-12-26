@@ -4,11 +4,16 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                @if(session('message'))
+                    <div class="alert alert-success">
+                        {{ session('message') }}
+                    </div>
+                @endif
                 <div class="card">
                     <div class="card-header">Settings</div>
 
                     <div class="card-body">
-                        <form method="POST" action="">
+                        <form method="POST" action="{{ route('user.edit') }}">
                             @csrf
 
                             <div class="form-group row">
@@ -18,7 +23,8 @@
                                 <div class="col-md-6">
                                     <input id="name" type="text"
                                            class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
-                                           name="name" value="{{ old('name') }}" required autofocus>
+                                           name="name" value="{{ Auth::user()->name }}" required
+                                           autofocus>
 
                                     @if ($errors->has('name'))
                                         <span class="invalid-feedback" role="alert">
@@ -37,7 +43,8 @@
                                     <input id="surname" type="text"
                                            class="form-control{{ $errors->has('surname') ? '
                                            is-invalid' : '' }}"
-                                           name="surname" value="{{ old('surname') }}" required
+                                           name="surname" value="{{ Auth::user()->surname }}"
+                                           required
                                            autofocus>
 
                                     @if ($errors->has('surname'))
@@ -58,7 +65,7 @@
                                     <input id="nick" type="text"
                                            class="form-control{{ $errors->has('nick') ? '
                                            is-invalid' : '' }}"
-                                           name="nick" value="{{ old('nick') }}" required
+                                           name="nick" value="{{ Auth::user()->nick }}" required
                                            autofocus>
 
                                     @if ($errors->has('nick'))
@@ -76,7 +83,7 @@
                                 <div class="col-md-6">
                                     <input id="email" type="email"
                                            class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                           name="email" value="{{ old('email') }}" required>
+                                           name="email" value="{{ Auth::user()->email }}" required>
 
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback" role="alert">
