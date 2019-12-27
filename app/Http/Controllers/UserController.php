@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class UserController extends Controller
 {
@@ -32,6 +34,8 @@ class UserController extends Controller
             'email' => 'required|string|max:255|unique:users,email,'.$id
         ]);
 
+
+
         // Save values from request
         $name = $req->input('name');
         $surname = $req->input('surname');
@@ -43,6 +47,19 @@ class UserController extends Controller
         $user->surname = $surname;
         $user->nick = $nick;
         $user->email = $email;
+
+        //Get the profile picture
+        $image = $req->file('image');
+
+        if ($image) {
+            // Unique name
+            $image_name = time().$image->getClientOriginalName();
+            // Save it into the storage
+            $image->storeAs('users', $image_name);
+
+            //Save it into the database
+            $user->image = $image_name;
+        }
 
         //Update data's user
         $user->update();
