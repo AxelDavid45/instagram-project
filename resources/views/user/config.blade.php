@@ -101,8 +101,9 @@
 
                                 <div class="col-md-6">
                                     @if(\Auth::user()->image)
-                                        <img src="{{ route('user.avatar', ['filename' =>\Auth::user()->image ]) }}" alt="">
-                                    @endif    
+                                        <img class="profile-thumb" src="{{ route('user.avatar', ['filename'
+                                        =>\Auth::user()->image ]) }}" alt="">
+                                    @endif
                                     <input id="image" type="file"
                                            class="form-control{{ $errors->has('image') ? '
                                            is-invalid' : '' }}"
