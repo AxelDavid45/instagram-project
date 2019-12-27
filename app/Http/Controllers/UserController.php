@@ -55,8 +55,7 @@ class UserController extends Controller
             // Unique name
             $image_name = time().$image->getClientOriginalName();
             // Save it into the storage
-            $image->storeAs('users', $image_name);
-
+            Storage::disk('users')->put($image_name, File::get($image->path()));
             //Save it into the database
             $user->image = $image_name;
         }

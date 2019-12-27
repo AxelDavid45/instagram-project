@@ -58,6 +58,14 @@ return [
         'users' => [
             'driver' => 'local',
             'root' => storage_path('app/users'),
+            'permissions' => [
+                'file' => [
+                    'public' => 0664
+                ],
+                'dir' => [
+                    'public' => 0775
+                ]
+            ],
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
