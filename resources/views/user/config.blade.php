@@ -13,7 +13,7 @@
                     <div class="card-header">Settings</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('user.edit') }}"
+                        <form method="post" action="{{ route('user.edit') }}"
                               enctype="multipart/form-data">
                             @csrf
 
