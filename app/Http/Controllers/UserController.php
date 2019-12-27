@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Http\Response;
 
 class UserController extends Controller
 {
@@ -67,5 +68,12 @@ class UserController extends Controller
         return redirect()->route('config')
             ->with(['message' => 'Information has updated successfully']);
 
+    }
+
+    public function getImageProfile($filename_db) {
+        // Get the file from storage
+        $file = Storage::disk('users')->get($filename_db);
+        //Return a response 200 with raw file
+        return new Response($file, 200);
     }
 }
