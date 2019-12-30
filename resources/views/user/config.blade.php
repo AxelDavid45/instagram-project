@@ -100,10 +100,7 @@
                                        text-md-right">Profile picture</label>
 
                                 <div class="col-md-6">
-                                    @if(\Auth::user()->image)
-                                        <img class="profile-thumb" src="{{ route('user.avatar', ['filename'
-                                        =>\Auth::user()->image ]) }}" alt="">
-                                    @endif
+                                    @include('includes.avatar')
                                     <input id="image" type="file"
                                            class="form-control{{ $errors->has('image') ? '
                                            is-invalid' : '' }}"

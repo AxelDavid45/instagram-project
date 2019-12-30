@@ -52,11 +52,17 @@
                                href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                     @else
+
                         <li class="nav-item">
                             <a class="nav-link" href="">Inicio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="">Subir imagen</a>
+                        </li>
+                        <li class="nav-item">
+                            <div class="container-thumb">
+                                @include('includes.avatar')
+                            </div>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#"
