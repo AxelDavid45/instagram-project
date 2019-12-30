@@ -7,6 +7,7 @@ form .profile-thumb {
     height: 40px;
     border-radius: 90%;
     overflow: hidden;
+    margin-left: 1rem;
 }
 
 .navbar-nav  .profile-thumb {
