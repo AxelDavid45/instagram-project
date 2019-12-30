@@ -25,3 +25,4 @@ Route::group(['prefix' => 'user'], function () {
 
 //Route for show view create image
 Route::get('/upload', 'ImageController@uploadForm')->name('image.form');
+Route::post('/save', 'ImageController@saveImage')->name('image.save');

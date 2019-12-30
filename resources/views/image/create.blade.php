@@ -8,7 +8,7 @@
                     <div class="card-header">Upload Image</div>
 
                     <div class="card-body">
-                        <form method="post" action=""
+                        <form method="post" action="{{ route('image.save') }}"
                               enctype="multipart/form-data">
                             @csrf
 
@@ -38,7 +38,8 @@
                                 <div class="col-md-6">
                                     <textarea class="form-control {{ $errors->has('description') ? '
                                            is-invalid' : '' }}" id="description"
-                                              rows="3" required autofocus></textarea>
+                                              rows="3" name="description" required
+                                              autofocus></textarea>
 
                                     @if ($errors->has('description'))
                                         <span class="invalid-feedback" role="alert">
@@ -47,7 +48,7 @@
                                     @endif
                                 </div>
                             </div>
-                            
+
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
