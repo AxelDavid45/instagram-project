@@ -57,7 +57,7 @@
                             <a class="nav-link" href="">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">Subir imagen</a>
+                            <a class="nav-link" href="{{route('image.form')}}">Subir imagen</a>
                         </li>
                         <li class="nav-item">
                             <div class="container-thumb">

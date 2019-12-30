@@ -22,3 +22,6 @@ Route::group(['prefix' => 'user'], function () {
     Route::post('edit', 'UserController@edit')->name('user.edit');
     Route::get('avatar/{filename}', 'UserController@getImageProfile')->name('user.avatar');
 });
+
+//Route for show view create image
+Route::get('/upload', 'ImageController@uploadForm')->name('image.form');
