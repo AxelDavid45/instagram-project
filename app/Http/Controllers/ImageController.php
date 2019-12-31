@@ -56,4 +56,12 @@ class ImageController extends Controller
                 'messageError' => 'There was an error while uploading your image, try it again'
             ]);
     }
+
+    public function detail($id) {
+        $image = Image::find($id);
+
+        return view('image.detail', [
+            'image' => $image
+        ]);
+    }
 }

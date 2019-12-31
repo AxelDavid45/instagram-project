@@ -10,6 +10,7 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <script src="https://kit.fontawesome.com/4bc87b4ae7.js" crossorigin="anonymous"></script>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -54,7 +55,7 @@
                     @else
 
                         <li class="nav-item">
-                            <a class="nav-link" href="">Inicio</a>
+                            <a class="nav-link" href="{{ route('home') }}">Inicio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('image.form')}}">Subir imagen</a>

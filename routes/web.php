@@ -25,4 +25,6 @@ Route::group(['prefix' => 'user'], function () {
 
 //Route for show view create image
 Route::get('/upload', 'ImageController@uploadForm')->name('image.form');
+//Route for save an image in a storage
 Route::post('/save', 'ImageController@saveImage')->name('image.save');
+Route::get('/detail/{id}', 'ImageController@detail')->name('image.detail');
