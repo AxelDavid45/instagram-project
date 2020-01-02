@@ -24,7 +24,7 @@ Route::group(['prefix' => 'user'], function () {
 });
 
 
-
+//Group images
 Route::group(['prefix' => 'image'], function () {
     //Route for show view create image
     Route::get('upload', 'ImageController@uploadForm')->name('image.form');
@@ -34,9 +34,13 @@ Route::group(['prefix' => 'image'], function () {
     Route::get('detail/{id}', 'ImageController@detail')->name('image.detail');
 });
 
-
+//Group comments
 Route::group(['prefix' => 'comment'], function () {
     Route::post('save', 'CommentController@saveComment')->name('comment.save');
     Route::get('delete/{id}', 'CommentController@deleteComment')->name('comment.delete');
 });
 
+//Group likes
+Route::group(['prefix' => 'likes'], function () {
+    Route::get('save/{id}', 'LikeController@saveLike')->name('like.save');
+});
