@@ -5,7 +5,6 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 @include('includes.message')
-
                 <div class="card">
                     <div class="card-header">
                         <div class="userdata-container-post">
@@ -37,6 +36,16 @@
                             fa-heart"></i></a>
 
                         <h4>Comments:</h4>
+
+                        <div class="mt-3">
+                            @foreach($image->comments as $comment)
+                                <p class="card-text"><strong>{{$comment->user->nick}} </strong>{{
+                        \FormatTimeInstagram::LongTimeFilter($comment->created_at)}}</p>
+                                <p>{{ $comment->content }}</p>
+                            @endforeach
+                        </div>
+
+                        <h4>Add comment:</h4>
                         <form action="{{ route('comment.save') }}" method="POST">
                             @csrf
                             <input type="hidden" name="image_id" value="{{ $image->id }}">
@@ -48,6 +57,7 @@
                             @endif
                             <button type="submit" class="mt-1 btn btn-info">Submit</button>
                         </form>
+
 
                     </div>
                 </div>
