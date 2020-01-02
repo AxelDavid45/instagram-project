@@ -29,17 +29,17 @@
                                         =>$image->image_path]) }}" alt="">
 
 
-                        <p class="card-text"><strong>{{$image->user->nick}}
-                            </strong>{{$image->description
-                            }}</p>
+                        <p class="card-text"><strong>{{$image->user->nick}} </strong>{{
+                        \FormatTimeInstagram::LongTimeFilter($image->created_at)}}</p>
+                        <p>{{ $image->description }}</p>
                         <a style="font-size: 1.6rem; color: #202326" class="btn" href=""><i
                                 class="fas
                             fa-heart"></i></a>
-                        <a href="" class="btn btn-info p-2">({{ count
-                            ($image->comments)
-                            }})Comentarios<i
-                                class="fas
-                            fa-comments"></i></a>
+
+                        <h4>Comments:</h4>
+                        <p>
+                        <form action="" method="POST"></form>
+                        </p>
                     </div>
                 </div>
             </div>
