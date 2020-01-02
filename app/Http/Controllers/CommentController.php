@@ -47,4 +47,21 @@ class CommentController extends Controller
                 'messageError' => 'Error saving comment'
             ]);
     }
+
+    public function deleteComment($id) {
+        //Retrieve the object
+        $comment = Comment::find($id);
+        //logged in user data
+        $user = \Auth::user();
+
+        if ($user && ($comment->user_id == $user->id) || $comment->image->user_id == $user->id) {
+            //Delete comment
+            $comment->delete();
+
+            return redirect()->route('image.detail', ['id' => $comment->image->id])
+                ->with([
+                    'message' => 'Comment deleted'
+                ]);
+        }
+    }
 }

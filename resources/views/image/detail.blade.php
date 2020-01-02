@@ -41,7 +41,18 @@
                             @foreach($image->comments as $comment)
                                 <p class="card-text"><strong>{{$comment->user->nick}} </strong>{{
                         \FormatTimeInstagram::LongTimeFilter($comment->created_at)}}</p>
-                                <p>{{ $comment->content }}</p>
+                                <p>{{ $comment->content }}
+                                    @if(\Auth::user() && ($comment->user_id == \Auth::user()->id) ||
+                                    $comment->image->user_id == \Auth::user()->id)
+                                        <br> <a href="{{ route('comment.delete', ['id' =>
+                                        $comment->id]) }}"
+                                                class="btn
+                                        btn-sm
+                                        btn-danger">Delete
+                                            comment</a>
+                                    @endif
+
+                                </p>
                             @endforeach
                         </div>
 
