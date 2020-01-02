@@ -23,8 +23,19 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('avatar/{filename}', 'UserController@getImageProfile')->name('user.avatar');
 });
 
-//Route for show view create image
-Route::get('/upload', 'ImageController@uploadForm')->name('image.form');
-//Route for save an image in a storage
-Route::post('/save', 'ImageController@saveImage')->name('image.save');
-Route::get('/detail/{id}', 'ImageController@detail')->name('image.detail');
+
+
+Route::group(['prefix' => 'image'], function () {
+    //Route for show view create image
+    Route::get('upload', 'ImageController@uploadForm')->name('image.form');
+    //Route for save an image in a storage
+    Route::post('save', 'ImageController@saveImage')->name('image.save');
+    //Detail page image
+    Route::get('detail/{id}', 'ImageController@detail')->name('image.detail');
+});
+
+
+Route::group(['prefix' => 'comment'], function () {
+    Route::post('save', 'CommentController@saveComment')->name('comment.save');
+});
+

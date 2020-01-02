@@ -37,9 +37,18 @@
                             fa-heart"></i></a>
 
                         <h4>Comments:</h4>
-                        <p>
-                        <form action="" method="POST"></form>
-                        </p>
+                        <form action="{{ route('comment.save') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="image_id" value="{{ $image->id }}">
+                            <textarea name="content" class="form-control"></textarea>
+                            @if($errors->has('content'))
+                                <span>
+                                    <strong>{{ $errors->first('description') }}</strong>
+                                </span>
+                            @endif
+                            <button type="submit" class="mt-1 btn btn-info">Submit</button>
+                        </form>
+
                     </div>
                 </div>
             </div>
