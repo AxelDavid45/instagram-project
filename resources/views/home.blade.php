@@ -38,14 +38,7 @@
                                 </p>
                             <p>{{$image->description
                             }}</p>
-                            <a style="font-size: 1.6rem; color: #202326" class="btn" href=""><i
-                                    class="fas
-                            fa-heart"></i></a>
-                            <a href="" class="btn btn-info p-2">({{ count
-                            ($image->comments)
-                            }})Comentarios<i
-                                    class="fas
-                            fa-comments"></i></a>
+                            @include('includes.like-comment')
                         </div>
                     </div>
                 @endforeach

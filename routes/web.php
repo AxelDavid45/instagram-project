@@ -42,5 +42,6 @@ Route::group(['prefix' => 'comment'], function () {
 
 //Group likes
 Route::group(['prefix' => 'likes'], function () {
-    Route::get('save/{id}', 'LikeController@saveLike')->name('like.save');
+    Route::get('like/{id}', 'LikeController@saveLike')->name('like.save');
+    Route::get('dislike/{id}', 'LikeController@deleteLike')->name('like.delete');
 });

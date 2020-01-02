@@ -43,4 +43,29 @@ class LikeController extends Controller
         ]);
 
     }
+
+    public function deleteLike($id_image) {
+        //User data logged in
+        $user = \Auth::user();
+
+        //Find if exists other like from the same user
+        $like = Like::where('user_id', '=', $user->id)
+            ->where('image_id', '=', $id_image)->first();
+
+        if ($like) {
+            $like->delete();
+
+            //Return json
+            return response()->json([
+                'like' => $like,
+                'message' => 'Dislike'
+            ]);
+        }
+
+        //Return json
+        return response()->json([
+            'like' => 'Does not exist'
+        ]);
+
+    }
 }
