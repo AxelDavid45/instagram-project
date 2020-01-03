@@ -39,3 +39,7 @@ form .profile-thumb {
     max-height: 400px;
     overflow: hidden;
 }
+
+.like {
+    color: red;
+}

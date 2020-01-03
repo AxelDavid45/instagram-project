@@ -31,9 +31,7 @@
                         <p class="card-text"><strong>{{$image->user->nick}} </strong>{{
                         \FormatTimeInstagram::LongTimeFilter($image->created_at)}}</p>
                         <p>{{ $image->description }}</p>
-                        <a style="font-size: 1.6rem; color: #202326" class="btn" href=""><i
-                                class="fas
-                            fa-heart"></i></a>
+                        @include('includes.like-comment')
 
                         <h4>Comments:</h4>
 
